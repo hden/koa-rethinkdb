@@ -1,0 +1,34 @@
+{
+  "name": "koa-rethinkdb",
+  "version": "0.0.0",
+  "description": "Koa middleware that gets you a RethinkDB client",
+  "main": "index.js",
+  "engines": {
+    "node": ">=v0.11.9"
+  },
+  "dependencies": {
+    "debug": "~0.7.4",
+    "rethinkdb-pool": "~0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha --harmony-generators"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hden/koa-rethinkdb.git"
+  },
+  "keywords": [
+    "koa",
+    "rethinkdb",
+    "co",
+    "generator",
+    "es6"
+  ],
+  "author": "Hao-kang Den <haokang.den@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hden/koa-rethinkdb/issues"
+  },
+  "homepage": "https://github.com/hden/koa-rethinkdb"
+}
