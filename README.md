@@ -13,9 +13,9 @@ Installation
 Use
 ---
 
-    rethinkdbPool = require('koa-rethinkdb');
+    var rethinkdbPool = require('koa-rethinkdb');
 
-    options = {
+    var options = {
         host:'localhost',
         port:28015,
         db:'marvel',
@@ -27,22 +27,25 @@ Use
 Better Usage
 ------------
 
-    rethinkdbPool = require('koa-rethinkdb');
-    rco = require('rethinkdb-co');
-    r = require('rethinkdb');
+    var rethinkdbPool = require('koa-rethinkdb');
+    var r             = require('rethinkdb');
+    var chan          = require('chan');
 
     app.use(rethinkdbPool(options));
     app.use(function *(next) {
 
         // get the list of table
-        query1 = r.db('test').tableList()
-        list = yield rco.run query1
+        var ch1 = chan();
+        var query1 = r.db('test').tableList().run(this.rethinkdb, ch1);
+
+        var list = yield ch1;
 
         // select a few documents
-        query2 = r.db('test').table('foobar').limit(10)
-        cursor = yield rco.run query2
+        ch2 = chan();
+        r.db('test').table('foobar').limit(10).run(this.rethinkdb, ch2);
+        cursor = yield ch2;
 
-        result = yield cursor.toArray
+        result = yield cursor.toArray;
 
         yield next;
         // connections are released back to the pool.
