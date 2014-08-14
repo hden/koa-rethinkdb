@@ -1,6 +1,6 @@
 {
   "name": "koa-rethinkdb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Koa middleware that gets you a RethinkDB client",
   "main": "index.js",
   "engines": {
