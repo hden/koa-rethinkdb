@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "debug": "~0.7.4",
-    "rethinkdb-pool": "~0.0.1"
+    "rethinkdb-pool": "0.0.5"
   },
   "devDependencies": {},
   "scripts": {
